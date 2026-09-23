@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuis Pemrograman Web</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+    color: #263238;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.header {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    text-align: center;
+}
+
+.header h1 {
+    margin-top: 0;
+    color: #176b3a;
+}
+
+.header p {
+    color: #666;
+}
+
+.soal {
+    background: white;
+    padding: 22px;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.06);
+}
+
+.soal h3 {
+    margin-top: 0;
+    color: #176b3a;
+}
+
+label {
+    display: block;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+label:hover {
+    background: #eef8f1;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: #176b3a;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0e512a;
+}
+
+#hasil {
+    display: none;
+    background: white;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,.1);
+}
+
+.nilai {
+    font-size: 45px;
+    font-weight: bold;
+    color: #176b3a;
+}
+
+.benar {
+    background: #dff5e5 !important;
+    border-color: #2e9d55 !important;
+}
+
+.salah {
+    background: #ffe1e1 !important;
+    border-color: #d9534f !important;
+}
+
+.keterangan {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.review {
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+    background: #f5f5f5;
+}
+
+@media(max-width:600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .soal {
+        padding: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+    <h1>📝 Kuis Pemrograman</h1>
+    <p>
+        Materi: Laravel, GitHub, Database, JDBC,
+        dan Pemrograman Perangkat Bergerak
+    </p>
+    <p><b>35 Soal Pilihan Ganda</b></p>
+</div>
+
+<form id="quizForm">
+
+<!-- SOAL 1 -->
+<div class="soal">
+<h3>1. Dasar-Dasar Laravel</h3>
+<p>Perintah Artisan yang digunakan untuk menjalankan server lokal pada proyek Laravel adalah ....</p>
+
+<label><input type="radio" name="q1" value="A"> A. php artisan start</label>
+<label><input type="radio" name="q1" value="B"> B. php artisan run</label>
+<label><input type="radio" name="q1" value="C"> C. php artisan serve</label>
+<label><input type="radio" name="q1" value="D"> D. php artisan server</label>
+<label><input type="radio" name="q1" value="E"> E. php artisan localhost</label>
+</div>
+
+<!-- SOAL 2 -->
+<div class="soal">
+<h3>2. Konfigurasi Database Laravel</h3>
+<p>Berkas yang digunakan untuk mengatur konfigurasi koneksi database pada proyek Laravel adalah ....</p>
+
+<label><input type="radio" name="q2" value="A"> A. config.php</label>
+<label><input type="radio" name="q2" value="B"> B. .env</label>
+<label><input type="radio" name="q2" value="C"> C. database.php</label>
+<label><input type="radio" name="q2" value="D"> D. routes.php</label>
+<label><input type="radio" name="q2" value="E"> E. server.php</label>
+</div>
+
+<!-- SOAL 3 -->
+<div class="soal">
+<h3>3. Membuat Controller Laravel</h3>
+<p>Perintah Artisan yang tepat untuk membuat Controller baru bernama UserController adalah ....</p>
+
+<label><input type="radio" name="q3" value="A"> A. php artisan make:user UserController</label>
+<label><input type="radio" name="q3" value="B"> B. php artisan create:controller UserController</label>
+<label><input type="radio" name="q3" value="C"> C. php artisan controller UserController</label>
+<label><input type="radio" name="q3" value="D"> D. php artisan make:controller UserController</label>
+<label><input type="radio" name="q3" value="E"> E. php artisan new:controller UserController</label>
+</div>
+
+<!-- SOAL 4 -->
+<div class="soal">
+<h3>4. Fungsi routes/web.php</h3>
+<p>Apa fungsi utama file routes/web.php dalam Laravel?</p>
+
+<label><input type="radio" name="q4" value="A"> A. Menyimpan konfigurasi database</label>
+<label><input type="radio" name="q4" value="B"> B. Mengatur route atau alamat URL aplikasi web</label>
+<label><input type="radio" name="q4" value="C"> C. Menyimpan file gambar</label>
+<label><input type="radio" name="q4" value="D"> D. Membuat tabel database</label>
+<label><input type="radio" name="q4" value="E"> E. Mengatur tampilan CSS</label>
+</div>
+
+<!-- SOAL 5 -->
+<div class="soal">
+<h3>5. Membuat Repository GitHub</h3>
+<p>Untuk membuat repositori proyek baru pada GitHub, pengguna dapat memilih menu ....</p>
+
+<label><input type="radio" name="q5" value="A"> A. Delete Repository</label>
+<label><input type="radio" name="q5" value="B"> B. New Repository</label>
+<label><input type="radio" name="q5" value="C"> C. Download Repository</label>
+<label><input type="radio" name="q5" value="D"> D. Clone Repository</label>
+<label><input type="radio" name="q5" value="E"> E. Archive Repository</label>
+</div>
+
+<!-- SOAL 6 -->
+<div class="soal">
+<h3>6. Fungsi README.md</h3>
+<p>Apa fungsi utama file README.md dalam sebuah repository GitHub?</p>
+
+<label><input type="radio" name="q6" value="A"> A. Menyimpan password database</label>
+<label><input type="radio" name="q6" value="B"> B. Menjalankan server</label>
+<label><input type="radio" name="q6" value="C"> C. Menjadi dokumentasi dan memberikan informasi tentang proyek</label>
+<label><input type="radio" name="q6" value="D"> D. Menghapus file proyek</label>
+<label><input type="radio" name="q6" value="E"> E. Mengubah bahasa pemrograman</label>
+</div>
+
+<!-- SOAL 7 -->
+<div class="soal">
+<h3>7. Public vs Private Repository</h3>
+<p>Seorang siswa memiliki proyek yang berisi kode yang belum ingin dilihat orang lain. Pengaturan repository GitHub yang paling tepat adalah ....</p>
+
+<label><input type="radio" name="q7" value="A"> A. Public</label>
+<label><input type="radio" name="q7" value="B"> B. Private</label>
+<label><input type="radio" name="q7" value="C"> C. Open Source</label>
+<label><input type="radio" name="q7" value="D"> D. Fork</label>
+<label><input type="radio" name="q7" value="E"> E. Archive</label>
+</div>
+
+<!-- SOAL 8 -->
+<div class="soal">
+<h3>8. Import Database</h3>
+<p>Untuk memasukkan file database berekstensi .sql ke dalam phpMyAdmin, menu yang digunakan adalah ....</p>
+
+<label><input type="radio" name="q8" value="A"> A. Export</label>
+<label><input type="radio" name="q8" value="B"> B. Structure</label>
+<label><input type="radio" name="q8" value="C"> C. Import</label>
+<label><input type="radio" name="q8" value="D"> D. Search</label>
+<label><input type="radio" name="q8" value="E"> E. Status</label>
+</div>
+
+<!-- SOAL 9 -->
+<div class="soal">
+<h3>9. Primary Key dan Auto Increment</h3>
+<p>Sebuah tabel siswa memiliki kolom id_siswa yang digunakan sebagai identitas unik dan nilainya bertambah otomatis. Pengaturan yang tepat adalah ....</p>
+
+<label><input type="radio" name="q9" value="A"> A. Primary Key dan Auto Increment</label>
+<label><input type="radio" name="q9" value="B"> B. Foreign Key dan Null</label>
+<label><input type="radio" name="q9" value="C"> C. Index dan Default</label>
+<label><input type="radio" name="q9" value="D"> D. Text dan Unique</label>
+<label><input type="radio" name="q9" value="E"> E. Blob dan Auto Decrement</label>
+</div>
+
+<!-- SOAL 10 -->
+<div class="soal">
+<h3>10. DROP TABLE</h3>
+<p>Perintah SQL yang digunakan untuk menghapus sebuah tabel secara keseluruhan adalah ....</p>
+
+<label><input type="radio" name="q10" value="A"> A. DELETE DATABASE siswa;</label>
+<label><input type="radio" name="q10" value="B"> B. REMOVE TABLE siswa;</label>
+<label><input type="radio" name="q10" value="C"> C. DROP TABLE siswa;</label>
+<label><input type="radio" name="q10" value="D"> D. CLEAR TABLE siswa;</label>
+<label><input type="radio" name="q10" value="E"> E. ERASE TABLE siswa;</label>
+</div>
+
+<!-- SOAL 11 -->
+<div class="soal">
+<h3>11. Mengakses phpMyAdmin</h3>
+<p>Jika XAMPP digunakan untuk menjalankan database secara lokal, alamat yang tepat untuk membuka phpMyAdmin melalui browser adalah ....</p>
+
+<label><input type="radio" name="q11" value="A"> A. localhost/database</label>
+<label><input type="radio" name="q11" value="B"> B. localhost/phpMyAdmin</label>
+<label><input type="radio" name="q11" value="C"> C. localhost/mysql</label>
+<label><input type="radio" name="q11" value="D"> D. 127.0.0.1/database.php</label>
+<label><input type="radio" name="q11" value="E"> E. xampp/phpMyAdmin</label>
+</div>
+
+<!-- SOAL 12 -->
+<div class="soal">
+<h3>12. MySQL Belum Aktif</h3>
+<p>Apache pada XAMPP sudah aktif, tetapi MySQL belum aktif. Agar database dapat digunakan melalui phpMyAdmin, tindakan yang tepat adalah ....</p>
+
+<label><input type="radio" name="q12" value="A"> A. Mematikan Apache</label>
+<label><input type="radio" name="q12" value="B"> B. Menjalankan MySQL pada XAMPP</label>
+<label><input type="radio" name="q12" value="C"> C. Menghapus XAMPP</label>
+<label><input type="radio" name="q12" value="D"> D. Menghapus phpMyAdmin</label>
+<label><input type="radio" name="q12" value="E"> E. Mengganti browser</label>
+</div>
+
+<!-- SOAL 13 -->
+<div class="soal">
+<h3>13. Membuat Database Baru</h3>
+<p>Pada halaman utama phpMyAdmin, menu yang digunakan untuk mulai membuat database baru adalah ....</p>
+
+<label><input type="radio" name="q13" value="A"> A. SQL</label>
+<label><input type="radio" name="q13" value="B"> B. Status</label>
+<label><input type="radio" name="q13" value="C"> C. Basis Data</label>
+<label><input type="radio" name="q13" value="D"> D. Ekspor</label>
+<label><input type="radio" name="q13" value="E"> E. Impor</label>
+</div>
+
+<!-- SOAL 14 -->
+<div class="soal">
+<h3>14. Backup Database</h3>
+<p>Seorang administrator ingin membuat cadangan database agar dapat dipulihkan jika terjadi kehilangan data. Fitur phpMyAdmin yang digunakan adalah ....</p>
+
+<label><input type="radio" name="q14" value="A"> A. Import</label>
+<label><input type="radio" name="q14" value="B"> B. Export</label>
+<label><input type="radio" name="q14" value="C"> C. Search</label>
+<label><input type="radio" name="q14" value="D"> D. Structure</label>
+<label><input type="radio" name="q14" value="E"> E. Status</label>
+</div>
+
+<!-- SOAL 15 -->
+<div class="soal">
+<h3>15. Memulihkan Database</h3>
+<p>Tersedia file backup database dengan format .sql. Untuk memasukkan kembali file tersebut ke phpMyAdmin, fitur yang digunakan adalah ....</p>
+
+<label><input type="radio" name="q15" value="A"> A. Export</label>
+<label><input type="radio" name="q15" value="B"> B. Import</label>
+<label><input type="radio" name="q15" value="C"> C. Browse</label>
+<label><input type="radio" name="q15" value="D"> D. Search</label>
+<label><input type="radio" name="q15" value="E"> E. Privileges</label>
+</div>
+
+<!-- SOAL 16 -->
+<div class="soal">
+<h3>16. Charset dan Collation</h3>
+<p>Karakter bahasa asing seperti Jepang atau Arab tampil tidak sesuai setelah dimasukkan ke database. Pengaturan yang perlu diperhatikan adalah ....</p>
+
+<label><input type="radio" name="q16" value="A"> A. Primary Key</label>
+<label><input type="radio" name="q16" value="B"> B. Auto Increment</label>
+<label><input type="radio" name="q16" value="C"> C. Set Karakter/Charset dan Collation</label>
+<label><input type="radio" name="q16" value="D"> D. Foreign Key</label>
+<label><input type="radio" name="q16" value="E"> E. Index</label>
+</div>
+
+<!-- SOAL 17 -->
+<div class="soal">
+<h3>17. Status MySQL</h3>
+<p>Seorang administrator ingin mengetahui koneksi aktif, jumlah query, dan informasi performa server MySQL. Menu phpMyAdmin yang tepat adalah ....</p>
+
+<label><input type="radio" name="q17" value="A"> A. Import</label>
+<label><input type="radio" name="q17" value="B"> B. Export</label>
+<label><input type="radio" name="q17" value="C"> C. Status</label>
+<label><input type="radio" name="q17" value="D"> D. Structure</label>
+<label><input type="radio" name="q17" value="E"> E. Browse</label>
+</div>
+
+<!-- SOAL 18 -->
+<div class="soal">
+<h3>18. Kepanjangan JDBC</h3>
+<p>JDBC merupakan singkatan dari ....</p>
+
+<label><input type="radio" name="q18" value="A"> A. Java Database Connectivity</label>
+<label><input type="radio" name="q18" value="B"> B. Java Data Control</label>
+<label><input type="radio" name="q18" value="C"> C. Java Development Connection</label>
+<label><input type="radio" name="q18" value="D"> D. Java Database Compiler</label>
+<label><input type="radio" name="q18" value="E"> E. Java Digital Connectivity</label>
+</div>
+
+<!-- SOAL 19 -->
+<div class="soal">
+<h3>19. Fungsi getConnection()</h3>
+<p>Dalam JDBC, metode getConnection() digunakan untuk ....</p>
+
+<label><input type="radio" name="q19" value="A"> A. Menghapus database</label>
+<label><input type="radio" name="q19" value="B"> B. Membuat tabel baru</label>
+<label><input type="radio" name="q19" value="C"> C. Menghasilkan objek koneksi ke database</label>
+<label><input type="radio" name="q19" value="D"> D. Menutup aplikasi</label>
+<label><input type="radio" name="q19" value="E"> E. Membuat tampilan GUI</label>
+</div>
+
+<!-- SOAL 20 -->
+<div class="soal">
+<h3>20. Fungsi JDBC</h3>
+<p>Fungsi utama JDBC dalam pemrograman Java adalah ....</p>
+
+<label><input type="radio" name="q20" value="A"> A. Membuat desain website</label>
+<label><input type="radio" name="q20" value="B"> B. Menghubungkan program Java dengan database untuk mengakses dan memanipulasi data</label>
+<label><input type="radio" name="q20" value="C"> C. Mengedit gambar</label>
+<label><input type="radio" name="q20" value="D"> D. Membuat sistem operasi</label>
+<label><input type="radio" name="q20" value="E"> E. Mengatur koneksi internet</label>
+</div>
+
+<!-- SOAL 21 -->
+<div class="soal">
+<h3>21. DriverManager</h3>
+<p>Apa fungsi utama kelas DriverManager dalam JDBC?</p>
+
+<label><input type="radio" name="q21" value="A"> A. Membuat desain aplikasi</label>
+<label><input type="radio" name="q21" value="B"> B. Mengelola driver dan membantu membuat koneksi database</label>
+<label><input type="radio" name="q21" value="C"> C. Menghapus database</label>
+<label><input type="radio" name="q21" value="D"> D. Menampilkan gambar</label>
+<label><input type="radio" name="q21" value="E"> E. Mengatur layout GUI</label>
+</div>
+
+<!-- SOAL 22 -->
+<div class="soal">
+<h3>22. Query SELECT</h3>
+<p>Perintah SQL yang tepat untuk menampilkan kolom nama dan kelas dari tabel siswa adalah ....</p>
+
+<label><input type="radio" name="q22" value="A"> A. SHOW nama, kelas FROM siswa;</label>
+<label><input type="radio" name="q22" value="B"> B. SELECT nama, kelas FROM siswa;</label>
+<label><input type="radio" name="q22" value="C"> C. DISPLAY nama, kelas FROM siswa;</label>
+<label><input type="radio" name="q22" value="D"> D. GET nama, kelas IN siswa;</label>
+<label><input type="radio" name="q22" value="E"> E. VIEW nama, kelas TABLE siswa;</label>
+</div>
+
+<!-- SOAL 23 -->
+<div class="soal">
+<h3>23. Klausa WHERE</h3>
+<p>Perintah SQL yang tepat untuk menampilkan siswa yang berada di kelas X RPL 1 adalah ....</p>
+
+<label><input type="radio" name="q23" value="A"> A. SELECT * FROM siswa WHERE kelas = 'X RPL 1';</label>
+<label><input type="radio" name="q23" value="B"> B. SELECT * siswa IF kelas = 'X RPL 1';</label>
+<label><input type="radio" name="q23" value="C"> C. SHOW siswa WHERE kelas;</label>
+<label><input type="radio" name="q23" value="D"> D. GET * FROM siswa IF kelas;</label>
+<label><input type="radio" name="q23" value="E"> E. SELECT siswa FROM kelas = 'X RPL 1';</label>
+</div>
+
+<!-- SOAL 24 -->
+<div class="soal">
+<h3>24. Driver JDBC MySQL</h3>
+<p>Library driver yang umum digunakan untuk menghubungkan aplikasi Java dengan database MySQL adalah ....</p>
+
+<label><input type="radio" name="q24" value="A"> A. mysql-connector-java</label>
+<label><input type="radio" name="q24" value="B"> B. java-database-driver</label>
+<label><input type="radio" name="q24" value="C"> C. mysql-java-interface</label>
+<label><input type="radio" name="q24" value="D"> D. jdbc-mysql-html</label>
+<label><input type="radio" name="q24" value="E"> E. java-mysql-server</label>
+</div>
+
+<!-- SOAL 25 -->
+<div class="soal">
+<h3>25. Native vs Hybrid</h3>
+<p>Perbedaan mendasar aplikasi Native dan Hybrid adalah ....</p>
+
+<label><input type="radio" name="q25" value="A"> A. Native menggunakan teknologi khusus platform dan umumnya memberikan performa optimal, sedangkan Hybrid menggunakan pendekatan web/cross-platform dalam satu aplikasi</label>
+<label><input type="radio" name="q25" value="B"> B. Native hanya dapat digunakan untuk website</label>
+<label><input type="radio" name="q25" value="C"> C. Hybrid selalu lebih cepat daripada Native</label>
+<label><input type="radio" name="q25" value="D"> D. Native tidak membutuhkan kode program</label>
+<label><input type="radio" name="q25" value="E"> E. Hybrid hanya dapat berjalan di komputer</label>
+</div>
+
+<!-- SOAL 26 -->
+<div class="soal">
+<h3>26. Cross-platform Development</h3>
+<p>Sebuah perusahaan ingin membuat aplikasi Android dan iOS dengan waktu dan biaya pengembangan yang lebih efisien. Strategi yang paling tepat adalah ....</p>
+
+<label><input type="radio" name="q26" value="A"> A. Membuat dua aplikasi dengan kode yang sepenuhnya berbeda</label>
+<label><input type="radio" name="q26" value="B"> B. Menggunakan Cross-platform Development</label>
+<label><input type="radio" name="q26" value="C"> C. Hanya membuat aplikasi untuk Android</label>
+<label><input type="radio" name="q26" value="D"> D. Tidak menggunakan framework</label>
+<label><input type="radio" name="q26" value="E"> E. Membuat aplikasi secara manual tanpa kode</label>
+</div>
+
+<!-- SOAL 27 -->
+<div class="soal">
+<h3>27. Keterbatasan PWA</h3>
+<p>Sebuah perusahaan memilih PWA untuk aplikasi yang membutuhkan akses hardware perangkat secara mendalam. Hal yang perlu diperhatikan adalah ....</p>
+
+<label><input type="radio" name="q27" value="A"> A. PWA selalu memiliki akses penuh ke seluruh hardware</label>
+<label><input type="radio" name="q27" value="B"> B. PWA memiliki keterbatasan akses terhadap beberapa fitur hardware dibandingkan aplikasi Native</label>
+<label><input type="radio" name="q27" value="C"> C. PWA tidak membutuhkan browser</label>
+<label><input type="radio" name="q27" value="D"> D. PWA tidak dapat menggunakan internet</label>
+<label><input type="radio" name="q27" value="E"> E. PWA hanya dapat berjalan di Android</label>
+</div>
+
+<!-- SOAL 28 -->
+<div class="soal">
+<h3>28. Error Tipe Data Dart</h3>
+<p>Perhatikan kode Dart berikut:</p>
+<pre>int umur = "17";</pre>
+<p>Kesalahan pada kode tersebut adalah ....</p>
+
+<label><input type="radio" name="q28" value="A"> A. Variabel umur harus bertipe String</label>
+<label><input type="radio" name="q28" value="B"> B. Nilai "17" bertipe String sehingga tidak dapat langsung dimasukkan ke variabel bertipe int</label>
+<label><input type="radio" name="q28" value="C"> C. Dart tidak mendukung tipe int</label>
+<label><input type="radio" name="q28" value="D"> D. Variabel tidak boleh diberi nilai</label>
+<label><input type="radio" name="q28" value="E"> E. Semua variabel Dart harus bertipe dynamic</label>
+</div>
+
+<!-- SOAL 29 -->
+<div class="soal">
+<h3>29. Keunggulan Dart</h3>
+<p>Salah satu keunggulan Dart dibandingkan Java dalam pengembangan aplikasi mobile menggunakan Flutter adalah ....</p>
+
+<label><input type="radio" name="q29" value="A"> A. Dart hanya dapat digunakan untuk Android</label>
+<label><input type="radio" name="q29" value="B"> B. Dart mendukung pengembangan cross-platform dengan satu basis kode</label>
+<label><input type="radio" name="q29" value="C"> C. Dart tidak dapat digunakan untuk aplikasi mobile</label>
+<label><input type="radio" name="q29" value="D"> D. Dart hanya digunakan untuk database</label>
+<label><input type="ra
